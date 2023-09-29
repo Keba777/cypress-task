@@ -1,37 +1,12 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTodo, updateTodo } from "../slices/todoSlice";
+import React from "react";
 
-const TodoForm = ({ taskId, buttonText }) => {
-  const dispatch = useDispatch();
-  const [taskText, setTaskText] = useState("");
-
-  const handleTaskChange = (e) => {
-    setTaskText(e.target.value);
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-
-    if (taskText.trim() === "") return;
-
-    if (taskId) {
-      // Edit task
-      dispatch(updateTodo({ id: taskId, text: taskText }));
-    } else {
-      // Add task
-      dispatch(addTodo(taskText));
-    }
-
-    setTaskText("");
-  };
-
+const TodoForm = ({ onSubmit, buttonText, value, onChange }) => {
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={onSubmit}>
       <input
         type="text"
-        value={taskText}
-        onChange={handleTaskChange}
+        value={value}
+        onChange={onChange}
         placeholder="Enter a task"
       />
       <button type="submit">{buttonText}</button>

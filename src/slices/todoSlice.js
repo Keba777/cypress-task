@@ -65,9 +65,12 @@ const todoSlice = createSlice({
       });
     },
     updateTodo: (state, action) => {
-      const todo = state.find((todo) => todo.id === action.payload);
+      const todo = state.find((todo) => todo.id === action.payload.id);
       if (todo) {
-        todo.completed = !todo.completed;
+        // Update the text if provided in the payload
+        if (action.payload.text !== undefined) {
+          todo.text = action.payload.text;
+        }
       }
     },
     removeTodo: (state, action) => {
