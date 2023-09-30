@@ -85,7 +85,7 @@ const TodoList = () => {
             ))}
         </div>
       </div>
-      <div className="center-button">
+      <div className="center-item">
         <button onClick={handleAddTask} className="btn">
           Add Task
         </button>

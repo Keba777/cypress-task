@@ -22,7 +22,7 @@ h2 {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Fixed the syntax error here */
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px; /* Add some gap between grid items for spacing */
 }
 
@@ -51,7 +51,7 @@ h2 {
   justify-content: space-between;
 }
 
-.center-button {
+.center-item {
   display: flex;
   justify-content: center;
   margin-top: 10px;
@@ -77,8 +77,36 @@ h2 {
 
 .icon-task:hover {
   border: solid 1px var(--primary-color);
+  border-radius: 10px;
 }
 
 .icon-delete:hover {
   border: solid 1px var(--btn-delete-color);
+  border-radius: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  width: 60%;
+}
+
+.form-input {
+  display: block;
+  padding: 10px 4px;
+  border-radius: 5px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    grid-template-columns: 1fr; /* Change to a single column layout for small devices */
+  }
+
+  .task-container {
+    width: 100%; /* Make the task container occupy full width */
+    margin-bottom: 16px; /* Add some spacing between task containers */
+  }
 }
