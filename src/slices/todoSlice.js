@@ -14,7 +14,7 @@ const initialTodos = [
   {
     id: 3,
     text: "Read a chapter of a book",
-    completed: false,
+    completed: true,
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const initialTodos = [
   {
     id: 7,
     text: "Organize the living room",
-    completed: false,
+    completed: true,
   },
   {
     id: 8,
@@ -49,7 +49,7 @@ const initialTodos = [
   {
     id: 10,
     text: "Practice playing the guitar",
-    completed: false,
+    completed: true,
   },
 ];
 
@@ -73,11 +73,20 @@ const todoSlice = createSlice({
         }
       }
     },
+
+    completeTodo: (state, action) => {
+      const todo = state.find((todo) => todo.id === action.payload.id);
+      if (todo && action.payload.completed) {
+        todo.completed = true;
+      }
+    },
+
     removeTodo: (state, action) => {
       return state.filter((todo) => todo.id !== action.payload);
     },
   },
 });
 
-export const { addTodo, updateTodo, removeTodo } = todoSlice.actions;
+export const { addTodo, updateTodo, completeTodo, removeTodo } =
+  todoSlice.actions;
 export default todoSlice.reducer;

@@ -1,13 +1,84 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --bg-color: #ffffff; /* Background color */
+  --accent-color1: #389c9a; /* First accent color */
+  --accent-color2: #d98880; /* Second accent color */
+  --text-color: #1d1d1d; /* Text color */
+  --primary-color: #34495e;
+  --secondary-color: #bbb; /* Secondary color */
+  --btn-delete-color: #b62424;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  padding: 8px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+h1,
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Fixed the syntax error here */
+  gap: 16px; /* Add some gap between grid items for spacing */
+}
+
+.task-container {
+  background-color: var(--secondary-color);
+  padding: 18px;
+  border-radius: 10px;
+}
+
+.task-completed {
+  background-color: var(--accent-color1);
+  padding: 4px 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.task-uncompleted {
+  background-color: var(--accent-color2);
+  padding: 4px 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: medium;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30%;
+}
+
+.icon-task,
+.icon-delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.icon-task:hover {
+  border: solid 1px var(--primary-color);
+}
+
+.icon-delete:hover {
+  border: solid 1px var(--btn-delete-color);
 }
