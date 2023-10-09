@@ -2,9 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { completeTodo, removeTodo } from "../slices/todoSlice";
 import { useNavigate } from "react-router-dom";
-import { FaRegEdit } from "react-icons/fa";
-import { LuDelete } from "react-icons/lu";
-import { MdDone } from "react-icons/md";
+import CompletedTodoCard from "./CompletedTodoCard";
+import UncompletedTodoCard from "./UncompletedTodoCard";
 
 const TodoList = () => {
   const todos = useSelector((state) => state.todos);
@@ -12,7 +11,7 @@ const TodoList = () => {
   const navigate = useNavigate();
 
   const handleCompletTask = (id) => {
-    dispatch(completeTodo({ id, completed: true })); // Pass an object with 'id' and 'completed'
+    dispatch(completeTodo({ id, completed: true }));
   };
 
   const handleRemoveTask = (id) => {
@@ -23,10 +22,6 @@ const TodoList = () => {
     navigate(`todos/edit/${id}`);
   };
 
-  const handleAddTask = () => {
-    navigate("todos/add");
-  };
-
   return (
     <>
       <div className="container">
@@ -35,29 +30,13 @@ const TodoList = () => {
           {todos
             .filter((todo) => !todo.completed)
             .map((todo) => (
-              <div key={todo.id} className="task-uncompleted task-item">
-                <p>{todo.text}</p>
-                <span>
-                  <button
-                    className="icon-task"
-                    onClick={() => handleCompletTask(todo.id)}
-                  >
-                    <MdDone fontSize={25} color="#34495e" />
-                  </button>
-                  <button
-                    className="icon-task"
-                    onClick={() => handleEditTask(todo.id)}
-                  >
-                    <FaRegEdit fontSize={25} color="#34495e" />
-                  </button>
-                  <button
-                    className="icon-delete"
-                    onClick={() => handleRemoveTask(todo.id)}
-                  >
-                    <LuDelete fontSize={25} color="#b62424" />
-                  </button>
-                </span>
-              </div>
+              <UncompletedTodoCard
+                key={todo.id}
+                todo={todo}
+                handleCompletTask={handleCompletTask}
+                handleEditTask={handleEditTask}
+                handleRemoveTask={handleRemoveTask}
+              />
             ))}
         </div>
         <div className="task-container">
@@ -65,30 +44,14 @@ const TodoList = () => {
           {todos
             .filter((todo) => todo.completed)
             .map((todo) => (
-              <div key={todo.id} className="task-completed task-item">
-                <p>{todo.text}</p>
-                <span>
-                  <button
-                    className="icon-task"
-                    onClick={() => handleEditTask(todo.id)}
-                  >
-                    <FaRegEdit fontSize={25} color="#34495e" />
-                  </button>
-                  <button
-                    className="icon-delete"
-                    onClick={() => handleRemoveTask(todo.id)}
-                  >
-                    <LuDelete fontSize={25} color="#b62424" />
-                  </button>
-                </span>
-              </div>
+              <CompletedTodoCard
+                key={todo.id}
+                todo={todo}
+                handleEditTask={handleEditTask}
+                handleRemoveTask={handleRemoveTask}
+              />
             ))}
         </div>
-      </div>
-      <div className="center-item">
-        <button onClick={handleAddTask} className="btn">
-          Add Task
-        </button>
       </div>
     </>
   );
