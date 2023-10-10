@@ -10,10 +10,13 @@ const HomePage = () => {
   };
   return (
     <div>
-      <h1>My Tasks</h1>
+      <h1 className="text-5xl font-bold mb-4">My Tasks</h1>
       <TodoList />
-      <div className="center-item">
-        <button onClick={handleAddTask} className="btn">
+      <div className="flex justify-center">
+        <button
+          onClick={handleAddTask}
+          className="bg-blue-900 px-3 py-2 rounded-lg w-2/6 text-gray-200 text-lg hover:bg-blue-950"
+        >
           Add Task
         </button>
       </div>

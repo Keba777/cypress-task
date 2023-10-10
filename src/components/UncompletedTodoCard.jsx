@@ -10,23 +10,29 @@ const UncompletedTodoCard = ({
   handleRemoveTask,
 }) => {
   return (
-    <div key={todo.id} className="task-uncompleted task-item">
-      <p>{todo.text}</p>
+    <div
+      key={todo.id}
+      className=" bg-slate-800 border rounded-lg px-4 py-3 mb-2 flex justify-between "
+    >
+      <p className="text-white text-lg">{todo.text}</p>
       <span>
         <button
-          className="icon-task"
+          className=" bg-transparent border-none mr-3 "
           onClick={() => handleCompletTask(todo.id)}
         >
-          <MdDone fontSize={25} color="#34495e" />
-        </button>
-        <button className="icon-task" onClick={() => handleEditTask(todo.id)}>
-          <FaRegEdit fontSize={25} color="#34495e" />
+          <MdDone fontSize={20} color="#aaa" />
         </button>
         <button
-          className="icon-delete"
+          className=" bg-transparent border-none mr-3 "
+          onClick={() => handleEditTask(todo.id)}
+        >
+          <FaRegEdit fontSize={20} color="#aaa" />
+        </button>
+        <button
+          className=" bg-transparent border-none mr-3 "
           onClick={() => handleRemoveTask(todo.id)}
         >
-          <LuDelete fontSize={25} color="#b62424" />
+          <LuDelete fontSize={20} color="#bb0000" />
         </button>
       </span>
     </div>

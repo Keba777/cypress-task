@@ -24,9 +24,9 @@ const TodoList = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="task-container">
-          <h2>Tasks</h2>
+      <div className="px-6 sm:grid grid-cols-2 gap-5 mb-6">
+        <div className=" bg-gray-400 border rounded-2xl p-6">
+          <h2 className="text-3xl font-semibold mb-4">Tasks</h2>
           {todos
             .filter((todo) => !todo.completed)
             .map((todo) => (
@@ -39,8 +39,8 @@ const TodoList = () => {
               />
             ))}
         </div>
-        <div className="task-container">
-          <h2>Completed Tasks</h2>
+        <div className="bg-gray-400 border rounded-2xl p-6">
+          <h2 className="text-3xl font-semibold mb-4">Completed Tasks</h2>
           {todos
             .filter((todo) => todo.completed)
             .map((todo) => (

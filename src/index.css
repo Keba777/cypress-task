@@ -1,112 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --bg-color: #ffffff; /* Background color */
-  --accent-color1: #389c9a; /* First accent color */
-  --accent-color2: #d98880; /* Second accent color */
-  --text-color: #1d1d1d; /* Text color */
-  --primary-color: #34495e;
-  --secondary-color: #bbb; /* Secondary color */
-  --btn-delete-color: #b62424;
 }
 
 body {
   padding: 8px;
   background-color: var(--bg-color);
-  color: var(--text-color);
 }
 
 h1,
 h2 {
   display: flex;
   justify-content: center;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px; /* Add some gap between grid items for spacing */
-}
-
-.task-container {
-  background-color: var(--secondary-color);
-  padding: 18px;
-  border-radius: 10px;
-}
-
-.task-completed {
-  background-color: var(--accent-color1);
-  padding: 4px 10px;
-  border-radius: 5px;
-  margin-bottom: 8px;
-}
-
-.task-uncompleted {
-  background-color: var(--accent-color2);
-  padding: 4px 10px;
-  border-radius: 5px;
-  margin-bottom: 8px;
-}
-
-.task-item {
-  display: flex;
-  justify-content: space-between;
-}
-
-.center-item {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.btn {
-  padding: 10px 20px;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  font-size: medium;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 30%;
-}
-
-.icon-task,
-.icon-delete {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.icon-task:hover {
-  border: solid 1px var(--primary-color);
-  border-radius: 10px;
-}
-
-.icon-delete:hover {
-  border: solid 1px var(--btn-delete-color);
-  border-radius: 10px;
-}
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  background-color: var(--secondary-color);
-  width: 60%;
-}
-
-.form-input {
-  display: block;
-  padding: 10px 4px;
-  border-radius: 5px;
-}
-
-@media (max-width: 767px) {
-  .container {
-    grid-template-columns: 1fr; /* Change to a single column layout for small devices */
-  }
-
-  .task-container {
-    width: 100%; /* Make the task container occupy full width */
-    margin-bottom: 16px; /* Add some spacing between task containers */
-  }
 }
