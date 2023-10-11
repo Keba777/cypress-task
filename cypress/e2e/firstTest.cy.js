@@ -1,6 +1,10 @@
 /* eslint-disable no-undef */
-describe("template spec", () => {
+describe("Cypress demo", () => {
   it("passes", () => {
-    cy.visit("https://example.cypress.io");
+    cy.visit("http://localhost:3000/");
+
+    cy.get('[data-testid="main-title"]')
+      .should("exist")
+      .should("have.text", "My Tasks");
   });
 });

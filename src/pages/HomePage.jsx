@@ -10,7 +10,9 @@ const HomePage = () => {
   };
   return (
     <div>
-      <h1 className="text-5xl font-bold mb-4">My Tasks</h1>
+      <h1 className="text-5xl font-bold mb-4" data-testid="main-title">
+        My Tasks
+      </h1>
       <TodoList />
       <div className="flex justify-center">
         <button
